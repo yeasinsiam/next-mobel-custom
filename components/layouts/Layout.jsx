@@ -1,20 +1,8 @@
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import Link from "next/link";
 import NextNProgress from "nextjs-progressbar";
-
-// import { Navbar, Container } from "react-bootstrap";
-// import {
-//   faFacebookF,
-//   faTwitter,
-//   faYoutube,
-// } from "@fortawesome/free-brands-svg-icons";
-// import {
-//   faCartShopping,
-//   faMagnifyingGlass,
-//   faUser,
-// } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
+
 function Layout({ children }) {
   // Defined States
   const [toggleMobileMenu, setToggleMobileMenu] = useState(false);
@@ -29,7 +17,7 @@ function Layout({ children }) {
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", handleWindowScroll);
+    window.addEventListener("scroll", handleWindowScroll); //  scroll events
 
     return () => {
       window.removeEventListener("scroll", handleWindowScroll);

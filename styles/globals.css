@@ -6498,5 +6498,17 @@ footer .footer-social li a {
   color: red;
 }
 
-/* Version 2.2.0. 
- * Theme credit ElaThemes.com */
+
+
+
+
+
+
+/*================= custom code=================== */
+/* owl prev and next button style */
+
+.owl-buttons div span {
+  background-color: transparent !important;
+}
+
+
