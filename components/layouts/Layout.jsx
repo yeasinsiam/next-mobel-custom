@@ -101,7 +101,7 @@ function Layout({ children }) {
             </div>
 
             <div className="navigation navigation-main">
-              <a href="index.html" className="logo">
+              <a href="#" className="logo">
                 <Image
                   src="/assets/images/logo.png"
                   alt="nadrate_ounak_logo"
@@ -138,7 +138,7 @@ function Layout({ children }) {
                   </li>
 
                   <li>
-                    <a href="index.html">
+                    <a href="#">
                       Pages{" "}
                       <span className="open-dropdown">
                         <i className="fa fa-angle-down"></i>
@@ -174,7 +174,7 @@ function Layout({ children }) {
                                 <ul>
                                   <li className="label">Homepage</li>
                                   <li>
-                                    <a href="index.html">Home - Slider</a>
+                                    <a href="#">Home - Slider</a>
                                   </li>
                                   <li>
                                     <a href="index-2.html">

@@ -6506,10 +6506,13 @@ footer .footer-social li a {
 /*================= custom code=================== */
 /* owl prev and next button style */
 
-.owl-buttons div span {
-  background-color: transparent !important;
-}
 
+
+section.header-content .owl-buttons div span ,
+section.owl-icons-frontpage .owl-buttons div span 
+{
+   background-color: transparent !important;
+}
 
 
 

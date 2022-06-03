@@ -7,7 +7,7 @@ const arrowIcons = [
   '<span class="icon icon-chevron-right"></span>',
 ];
 
-export function owlCaroselJs() {
+export default function owlCaroselJs() {
   if (typeof Object.create !== "function") {
     Object.create = function (obj) {
       function F() {}
@@ -1649,9 +1649,9 @@ export function owlCaroselJs() {
       afterLazyLoad: false,
     };
   })(jQuery, window, document);
-}
 
-export function owlCaroselHomeSlide() {
+  // ==================== Initializations ======================\\
+  //Home Slider
   $.each($(".owl-slider"), function (i, n) {
     $(n).owlCarousel({
       autoHeight: false,
@@ -1687,9 +1687,8 @@ export function owlCaroselHomeSlide() {
       $(".header-content .item").height($(window).height());
     }
   });
-}
 
-export function owlCaroselIconSlide() {
+  // Icon Slider
   $.each($(".owl-icons"), function (i, n) {
     $(n).owlCarousel({
       autoHeight: false,
@@ -1707,4 +1706,24 @@ export function owlCaroselIconSlide() {
       stopOnHover: true,
     });
   });
+
+  //Product slider
+  $.each($(".owl-product-gallery"), function (i, n) {
+    $(n).owlCarousel({
+      //transitionStyle: "fadeUp",
+      autoHeight: true,
+      slideSpeed: 800,
+      navigation: true,
+      navigationText: arrowIcons,
+      pagination: true,
+      items: 1,
+      singleItem: true,
+    });
+  });
 }
+
+// export function owlCaroselIconSlide() {}
+
+// //Product slider
+
+// export function owlCaroselProductSlide() {}
