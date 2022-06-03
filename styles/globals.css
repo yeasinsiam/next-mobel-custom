@@ -6512,3 +6512,12 @@ footer .footer-social li a {
 }
 
 
+
+
+
+/* tuch problme fixed */
+.owl-carousel { 
+  -ms-touch-action: none !important;
+  touch-action: none !important;
+}
+
