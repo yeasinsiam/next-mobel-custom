@@ -1,13 +1,6 @@
 
 /*!
     ----------------------------------
-
-    * Mobel Furniture Template Theme
-    * Version - 2.2.0
-    * Copyright (c) 2017 ElaThemes.com
-
-    ----------------------------------
-
     [Table of contents]
 
     1. Default body styles
@@ -66,6 +59,12 @@
     1. Default body styles
     ----------------------------------
 */
+
+html{
+    -ms-touch-action: pan-y !important;
+    touch-action: pan-y !important;
+}
+
 * {
   box-sizing: border-box;
   text-decoration: none;
@@ -6513,11 +6512,4 @@ footer .footer-social li a {
 
 
 
-
-
-/* tuch problme fixed */
-.owl-carousel { 
-  -ms-touch-action: none !important;
-  touch-action: none !important;
-}
 
