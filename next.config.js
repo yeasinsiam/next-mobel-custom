@@ -14,6 +14,8 @@ const nextConfig = {
     );
     return config;
   },
+
+  // experimental: { images: { layoutRaw: true } },
 };
 
 module.exports = nextConfig;

@@ -1,6 +1,8 @@
+import Image from "next/image";
 import { useEffect } from "react";
 import magnificPopupJs from "../libs/jquery.magnific-popup";
 import owlCaroselJs from "../libs/jquery.owl.carousel";
+import strecherItemJs from "../libs/jquery.strecherItem";
 
 // const $ = require("jquery");
 // if (typeof window !== "undefined") {
@@ -11,7 +13,8 @@ function Home() {
   useEffect(() => {
     // -------------------(Assestial  initializations)-----------------\\
     owlCaroselJs(); //   owl carousel
-    magnificPopupJs(); // magnific Popup
+    magnificPopupJs(); // magnific Popup\
+    strecherItemJs(); // Strecher accordion
   }, []);
 
   return (
@@ -21,7 +24,7 @@ function Home() {
         <div className="owl-slider">
           <div
             className="item"
-            style={{ backgroundImage: "url(assets/images/gallery-3.jpg)" }}
+            style={{ backgroundImage: "url(assets/images/gallery-3.webp)" }}
           >
             <div className="box">
               <div className="container">
@@ -47,7 +50,7 @@ function Home() {
           </div>
           <div
             className="item"
-            style={{ backgroundImage: "url(assets/images/gallery-1.jpg)" }}
+            style={{ backgroundImage: "url(assets/images/gallery-1.webp)" }}
           >
             <div className="box">
               <div className="container">
@@ -72,7 +75,7 @@ function Home() {
 
           <div
             className="item"
-            style={{ backgroundImage: "url(assets/images/gallery-2.jpg)" }}
+            style={{ backgroundImage: "url(assets/images/gallery-2.webp)" }}
           >
             <div className="box">
               <div className="container">
@@ -285,24 +288,18 @@ function Home() {
                 <div className="figure-grid">
                   <div className="image">
                     <a href="#productid1" className="mfp-open">
-                      <img
-                        src="assets/images/product-1.png"
-                        alt="picssdf"
-                        width="360"
-                      />
-                      {/* <Image
+                      <Image
                         src="/assets/images/product-1.png"
-                        alt="picssdf"
-                        // layout="fill"
+                        alt="product one"
                         width={345}
-                        height={200}
-                        // layout="raw"
-                      /> */}
+                        height={258.75}
+                        layout="responsive"
+                      />
                     </a>
                   </div>
                   <div className="text">
                     <h2 className="title h4">
-                      <a href="product.html">Green corner</a>
+                      <a href="#">Green corner</a>
                     </h2>
                     <sub>$ 1499,-</sub>
                     <sup>$ 1099,-</sup>
@@ -344,16 +341,18 @@ function Home() {
                 <div className="figure-grid">
                   <div className="image">
                     <a href="#productid1" className="mfp-open">
-                      <img
-                        src="assets/images/product-2.png"
-                        alt="picssdf"
-                        width="360"
+                      <Image
+                        src="/assets/images/product-2.png"
+                        alt="product one"
+                        width={345}
+                        height={258.75}
+                        layout="responsive"
                       />
                     </a>
                   </div>
                   <div className="text">
                     <h2 className="title h4">
-                      <a href="product.html">Laura</a>
+                      <a href="#">Laura</a>
                     </h2>
                     <sub>$ 3999,-</sub>
                     <sup>$ 3499,-</sup>
@@ -396,16 +395,18 @@ function Home() {
                   <span className="label label-warning">New</span>
                   <div className="image">
                     <a href="#productid1" className="mfp-open">
-                      <img
-                        src="assets/images/product-3.png"
-                        alt="picssdf"
-                        width="360"
+                      <Image
+                        src="/assets/images/product-3.png"
+                        alt="product one"
+                        width={345}
+                        height={258.75}
+                        layout="responsive"
                       />
                     </a>
                   </div>
                   <div className="text">
                     <h2 className="title h4">
-                      <a href="product.html">Nude</a>
+                      <a href="#">Nude</a>
                     </h2>
                     <sup>$ 2999,-</sup>
                     <span className="description clearfix">
@@ -446,16 +447,18 @@ function Home() {
                 <div className="figure-grid">
                   <div className="image">
                     <a href="#productid1" className="mfp-open">
-                      <img
-                        src="assets/images/product-4.png"
-                        alt="picssdf"
-                        width="360"
+                      <Image
+                        src="/assets/images/product-4.png"
+                        alt="product one"
+                        width={345}
+                        height={258.75}
+                        layout="responsive"
                       />
                     </a>
                   </div>
                   <div className="text">
                     <h2 className="title h4">
-                      <a href="product.html">Aurora</a>
+                      <a href="#">Aurora</a>
                     </h2>
                     <sup>$ 299,-</sup>
                     <span className="description clearfix">
@@ -497,16 +500,18 @@ function Home() {
                   <span className="label label-info">-50%</span>
                   <div className="image">
                     <a href="#productid1" className="mfp-open">
-                      <img
-                        src="assets/images/product-5.png"
-                        alt="picssdf"
-                        width="360"
+                      <Image
+                        src="/assets/images/product-5.png"
+                        alt="product one"
+                        width={345}
+                        height={258.75}
+                        layout="responsive"
                       />
                     </a>
                   </div>
                   <div className="text">
                     <h2 className="title h4">
-                      <a href="product.html">Dining set</a>
+                      <a href="#">Dining set</a>
                     </h2>
                     <sub>$ 1999,-</sub>
                     <sup>$ 1499,-</sup>
@@ -548,16 +553,18 @@ function Home() {
                 <div className="figure-grid">
                   <div className="image">
                     <a href="#productid1" className="mfp-open">
-                      <img
-                        src="assets/images/product-6.png"
-                        alt="picssdf"
-                        width="360"
+                      <Image
+                        src="/assets/images/product-6.png"
+                        alt="product six"
+                        width={345}
+                        height={258.75}
+                        layout="responsive"
                       />
                     </a>
                   </div>
                   <div className="text">
                     <h2 className="title h4">
-                      <a href="product.html">Seat chair</a>
+                      <a href="#">Seat chair</a>
                     </h2>
                     <sup>$ 896,-</sup>
                     <span className="description clearfix">
@@ -572,7 +579,7 @@ function Home() {
           </div>
 
           <div className="wrapper-more">
-            <a href="products-grid.html" className="btn btn-main">
+            <a href="#  " className="btn btn-main">
               View store
             </a>
           </div>
@@ -586,25 +593,33 @@ function Home() {
               </div>
 
               <div className="owl-product-gallery">
-                <img
-                  src="assets/images/product-1.png"
-                  alt="picssdf"
-                  width="640"
+                <Image
+                  src="/assets/images/product-1.png"
+                  alt="product one"
+                  width={640}
+                  height={480}
+                  layout="responsive"
                 />
-                <img
-                  src="assets/images/product-2.png"
-                  alt="picssdf"
-                  width="640"
+                <Image
+                  src="/assets/images/product-2.png"
+                  alt="product one"
+                  width={640}
+                  height={480}
+                  layout="responsive"
                 />
-                <img
-                  src="assets/images/product-3.png"
-                  alt="picssdf"
-                  width="640"
+                <Image
+                  src="/assets/images/product-3.png"
+                  alt="product one"
+                  width={640}
+                  height={480}
+                  layout="responsive"
                 />
-                <img
-                  src="assets/images/product-4.png"
-                  alt="picssdf"
-                  width="640"
+                <Image
+                  src="/assets/images/product-4.png"
+                  alt="product one"
+                  width={640}
+                  height={480}
+                  layout="responsive"
                 />
               </div>
 
@@ -665,7 +680,7 @@ function Home() {
                 </div>
                 <div className="popup-cell">
                   <div className="popup-buttons">
-                    <a href="product.html">
+                    <a href="#">
                       <span className="icon icon-eye"></span>{" "}
                       <span className="hidden-xs">View more</span>
                     </a>
@@ -678,6 +693,408 @@ function Home() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/*  <!-- ========================  Stretcher widget ======================== --> */}
+      <section className="stretcher-wrapper">
+        <header className="hidden">
+          <div className="container">
+            <div className="row">
+              <div className="col-md-offset-2 col-md-8 text-center">
+                <h1 className="h2 title">Popular categories</h1>
+                <div className="text">
+                  <p>
+                    Whether you are changing your home, or moving into a new
+                    one, you will find a huge selection of quality living room
+                    furniture, bedroom furniture, dining room furniture and the
+                    best value at Furniture factory
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <ul className="stretcher">
+          <li
+            className="stretcher-item"
+            style={{ backgroundImage: "url(assets/images/gallery-1.webp);" }}
+          >
+            <div className="stretcher-logo">
+              <div className="text">
+                <span className="f-icon f-icon-bedroom"></span>
+                <span className="text-intro">Bedroom</span>
+              </div>
+            </div>
+            <figure>
+              <h4>Modern furnishing projects</h4>
+              <figcaption>New furnishing ideas</figcaption>
+            </figure>
+            <a href="#">Anchor link</a>
+          </li>
+
+          <li
+            className="stretcher-item"
+            style={{ backgroundImage: "url(assets/images/gallery-2.webp);" }}
+          >
+            <div className="stretcher-logo">
+              <div className="text">
+                <span className="f-icon f-icon-sofa"></span>
+                <span className="text-intro">Living room</span>
+              </div>
+            </div>
+            <figure>
+              <h4>Furnishing and complements</h4>
+              <figcaption>Discover the design table collection</figcaption>
+            </figure>
+            <a href="#">Anchor link</a>
+          </li>
+
+          <li
+            className="stretcher-item"
+            style={{ backgroundImage: "url(assets/images/gallery-3.webp);" }}
+          >
+            <div className="stretcher-logo">
+              <div className="text">
+                <span className="f-icon f-icon-office"></span>
+                <span className="text-intro">Office</span>
+              </div>
+            </div>
+            <figure>
+              <h4>Which is Best for Your Home</h4>
+              <figcaption>Wardrobes vs Walk-In Closets</figcaption>
+            </figure>
+            <a href="#">Anchor link</a>
+          </li>
+
+          <li
+            className="stretcher-item"
+            style={{ backgroundImage: "url(assets/images/gallery-4.webp);" }}
+          >
+            <div className="stretcher-logo">
+              <div className="text">
+                <span className="f-icon f-icon-bathroom"></span>
+                <span className="text-intro">Bathroom</span>
+              </div>
+            </div>
+            <figure>
+              <h4>Keeping Things Minimal</h4>
+              <figcaption>Creating Your Very Own Bathroom</figcaption>
+            </figure>
+            <a href="#">Anchor link</a>
+          </li>
+
+          <li className="stretcher-item more">
+            <div className="more-icon">
+              <span data-title-show="Show more" data-title-hide="+"></span>
+            </div>
+            <a href="#"></a>
+          </li>
+        </ul>
+      </section>
+      {/*   <!-- ========================  Blog Block ======================== --> */}
+
+      <section className="blog blog-block">
+        <div className="container">
+          <header>
+            <div className="row">
+              <div className="col-md-offset-2 col-md-8 text-center">
+                <h2 className="title">Interior ideas</h2>
+                <div className="text">
+                  <p>Keeping things minimal</p>
+                </div>
+              </div>
+            </div>
+          </header>
+
+          <div className="row">
+            <div className="col-sm-4">
+              <article>
+                <a href="#">
+                  <div className="image">
+                    <Image
+                      src="/assets/images/project-1.jpg"
+                      alt="project image"
+                      width={480}
+                      height={640}
+                      layout="responsive"
+                    />
+                  </div>
+                  <div className="entry entry-block">
+                    <div className="date">28 Mart 2017</div>
+                    <div className="title">
+                      <h2 className="h3">Creating the Perfect Gallery Wall </h2>
+                    </div>
+                    <div className="description">
+                      <p>
+                        You’ve finally reached this point in your life- you’ve
+                        bought your first home, moved into your very own
+                        apartment, moved out of the dorm room or you’re finally
+                        downsizing after all of your kids have left the nest.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="show-more">
+                    <span className="btn btn-main btn-block">Read more</span>
+                  </div>
+                </a>
+              </article>
+            </div>
+
+            <div className="col-sm-4">
+              <article>
+                <a href="#">
+                  <div className="image">
+                    <Image
+                      src="/assets/images/project-2.jpg"
+                      alt="project image"
+                      width={480}
+                      height={640}
+                      layout="responsive"
+                    />
+                  </div>
+                  <div className="entry entry-block">
+                    <div className="date">25 Mart 2017</div>
+                    <div className="title">
+                      <h2 className="h3">
+                        Making the Most Out of Your Kids Old Bedroom
+                      </h2>
+                    </div>
+                    <div className="description">
+                      <p>
+                        You’ve finally reached this point in your life- you’ve
+                        bought your first home, moved into your very own
+                        apartment, moved out of the dorm room or you’re finally
+                        downsizing after all of your kids have left the nest.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="show-more">
+                    <span className="btn btn-main btn-block">Read more</span>
+                  </div>
+                </a>
+              </article>
+            </div>
+
+            <div className="col-sm-4">
+              <article>
+                <a href="#">
+                  <div className="image">
+                    <Image
+                      src="/assets/images/project-3.jpg"
+                      alt="project image"
+                      width={480}
+                      height={640}
+                      layout="responsive"
+                    />
+                  </div>
+                  <div className="entry entry-block">
+                    <div className="date">28 Mart 2017</div>
+                    <div className="title">
+                      <h2 className="h3">Have a look at our new projects!</h2>
+                    </div>
+                    <div className="description">
+                      <p>
+                        You’ve finally reached this point in your life- you’ve
+                        bought your first home, moved into your very own
+                        apartment, moved out of the dorm room or you’re finally
+                        downsizing after all of your kids have left the nest.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="show-more">
+                    <span className="btn btn-main btn-block">Read more</span>
+                  </div>
+                </a>
+              </article>
+            </div>
+          </div>
+
+          <div className="wrapper-more">
+            <a href="ideas.html" className="btn btn-main">
+              View all posts
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* <!-- ========================  Banner ======================== --> */}
+      <section
+        className="banner"
+        style={{ backgroundImage: "url(assets/images/gallery-4.webp)" }}
+      >
+        <div className="container">
+          <div className="row">
+            <div className="col-md-offset-2 col-md-8 text-center">
+              <h2 className="title">Our story</h2>
+              <p>
+                We believe in creativity as one of the major forces of progress.
+                With this idea, we traveled throughout Italy to find exceptional
+                artisans and bring their unique handcrafted objects to
+                connoisseurs everywhere.
+              </p>
+              <p>
+                <a href="#" className="btn btn-clean">
+                  Read full story
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* <!-- ========================  Blog ======================== --> */}
+      <section className="blog">
+        <div className="container">
+          <header>
+            <div className="row">
+              <div className="col-md-offset-2 col-md-8 text-center">
+                <h1 className="h2 title">Blog</h1>
+                <div className="text">
+                  <p>Latest news from the blog</p>
+                </div>
+              </div>
+            </div>
+          </header>
+
+          <div className="row">
+            <div className="col-sm-4">
+              <article>
+                <a href="article.html">
+                  <div
+                    className="image"
+                    style={{ backgroundImage: "url(assets/images/blog-1.jpg)" }}
+                  >
+                    <img src="assets/images/blog-1.jpg" alt="blog image" />
+                  </div>
+                  <div className="entry entry-table">
+                    <div className="date-wrapper">
+                      <div className="date">
+                        <span>MAR</span>
+                        <strong>08</strong>
+                        <span>2017</span>
+                      </div>
+                    </div>
+                    <div className="title">
+                      <h2 className="h5">
+                        The 3 Tricks that Quickly Became Rules
+                      </h2>
+                    </div>
+                  </div>
+                  <div className="show-more">
+                    <span className="btn btn-main btn-block">Read more</span>
+                  </div>
+                </a>
+              </article>
+            </div>
+
+            <div className="col-sm-4">
+              <article>
+                <a href="article.html">
+                  <div
+                    className="image"
+                    style={{ backgroundImage: "url(assets/images/blog-2.jpg)" }}
+                  >
+                    <img src="assets/images/blog-1.jpg" alt="blog image" />
+                  </div>
+                  <div className="entry entry-table">
+                    <div className="date-wrapper">
+                      <div className="date">
+                        <span>MAR</span>
+                        <strong>03</strong>
+                        <span>2017</span>
+                      </div>
+                    </div>
+                    <div className="title">
+                      <h2 className="h5">
+                        Decorating When You re Starting Out or Starting Over
+                      </h2>
+                    </div>
+                  </div>
+                  <div className="show-more">
+                    <span className="btn btn-main btn-block">Read more</span>
+                  </div>
+                </a>
+              </article>
+            </div>
+
+            <div className="col-sm-4">
+              <article>
+                <a href="article.html">
+                  <div
+                    className="image"
+                    style={{ backgroundImage: "url(assets/images/blog-8.jpg)" }}
+                  >
+                    <img src="assets/images/blog-8.jpg" alt="blog image" />
+                  </div>
+                  <div className="entry entry-table">
+                    <div className="date-wrapper">
+                      <div className="date">
+                        <span>MAR</span>
+                        <strong>01</strong>
+                        <span>2017</span>
+                      </div>
+                    </div>
+                    <div className="title">
+                      <h2 className="h5">
+                        What does your favorite dining chair say about you?
+                      </h2>
+                    </div>
+                  </div>
+                  <div className="show-more">
+                    <span className="btn btn-main btn-block">Read more</span>
+                  </div>
+                </a>
+              </article>
+            </div>
+          </div>
+
+          <div className="wrapper-more">
+            <a href="#" className="btn btn-main">
+              View all posts
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* <!-- ========================  Instagram ======================== --> */}
+
+      <section className="instagram">
+        <header>
+          <div className="container">
+            <div className="row">
+              <div className="col-md-offset-2 col-md-8 text-center">
+                <h2 className="h2 title">
+                  Follow us <i className="fa fa-instagram fa-2x"></i> Instagram{" "}
+                </h2>
+                <div className="text">
+                  <p>@InstaFurnitureFactory</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <div className="gallery clearfix">
+          <a className="item" href="#">
+            <img src="assets/images/square-1.jpg" alt="Alternate Text" />
+          </a>
+          <a className="item" href="#">
+            <img src="assets/images/square-2.jpg" alt="Alternate Text" />
+          </a>
+          <a className="item" href="#">
+            <img src="assets/images/square-3.jpg" alt="Alternate Text" />
+          </a>
+          <a className="item" href="#">
+            <img src="assets/images/square-4.jpg" alt="Alternate Text" />
+          </a>
+          <a className="item" href="#">
+            <img src="assets/images/square-5.jpg" alt="Alternate Text" />
+          </a>
+          <a className="item" href="#">
+            <img src="assets/images/square-6.jpg" alt="Alternate Text" />
+          </a>
         </div>
       </section>
     </>
