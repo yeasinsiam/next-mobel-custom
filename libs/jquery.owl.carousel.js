@@ -1,7 +1,8 @@
-const $ = require("jquery");
-if (typeof window !== "undefined") {
-  window.$ = window.jQuery = require("jquery");
-}
+// const $ = require("jquery");
+// if (typeof window !== "undefined") {
+//   window.$ = window.jQuery = require("jquery");
+// }
+
 const arrowIcons = [
   '<span class="icon icon-chevron-left"></span>',
   '<span class="icon icon-chevron-right"></span>',

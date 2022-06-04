@@ -1,4 +1,6 @@
-export default function lazySizes() {
+// depriciated for mow
+
+const lazyLoader = () => {
   (function (window, factory) {
     var lazySizes = factory(window, window.document, Date);
     window.lazySizes = lazySizes;
@@ -1370,4 +1372,6 @@ export default function lazySizes() {
       });
     }
   );
-}
+};
+
+export default lazyLoader;

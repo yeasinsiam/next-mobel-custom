@@ -4,7 +4,6 @@ import { useEffect } from "react";
 import magnificPopupJs from "../libs/jquery.magnific-popup";
 import owlCaroselJs from "../libs/jquery.owl.carousel";
 import strecherItemJs from "../libs/jquery.strecherItem";
-import lazySizes from "../libs/lazySizes";
 
 // const $ = require("jquery");
 // if (typeof window !== "undefined") {
@@ -17,7 +16,6 @@ function Home() {
     owlCaroselJs(); //   owl carousel
     magnificPopupJs(); // magnific Popup\
     strecherItemJs(); // Strecher accordion
-    lazySizes(); // lazy loader background image
   }, []);
 
   return (
@@ -26,8 +24,9 @@ function Home() {
       <section className="header-content">
         <div className="owl-slider">
           <div
-            className="item"
-            style={{ backgroundImage: "url(assets/images/gallery-3.webp)" }}
+            className="item lazyload"
+            data-bgset="assets/images/gallery-3.webp"
+            // style={{ backgroundImage: "url(assets/images/gallery-3.webp)" }}
           >
             <div className="box">
               <div className="container">
@@ -52,8 +51,9 @@ function Home() {
             </div>
           </div>
           <div
-            className="item"
-            style={{ backgroundImage: "url(assets/images/gallery-1.webp)" }}
+            className="item lazyload"
+            data-bgset="assets/images/gallery-1.webp"
+            // style={{ backgroundImage: "url(assets/images/gallery-1.webp)" }}
           >
             <div className="box">
               <div className="container">
@@ -77,8 +77,9 @@ function Home() {
           </div>
 
           <div
-            className="item"
-            style={{ backgroundImage: "url(assets/images/gallery-2.webp)" }}
+            className="item lazyload"
+            data-bgset="assets/images/gallery-2.webp"
+            // style={{ backgroundImage: "url(assets/images/gallery-2.webp)" }}
           >
             <div className="box">
               <div className="container">
@@ -721,7 +722,7 @@ function Home() {
 
         <ul className="stretcher">
           <li
-            className="stretcher-item lazyload"
+            className="stretcher-item lazyload blur-up"
             data-bgset="assets/images/gallery-1.webp"
             // style={{ backgroundImage: "url(assets/images/gallery-1.webp)" }}
           >
@@ -739,8 +740,9 @@ function Home() {
           </li>
 
           <li
-            className="stretcher-item"
-            style={{ backgroundImage: "url(assets/images/gallery-2.webp)" }}
+            className="stretcher-item lazyload blur-up"
+            data-bgset="assets/images/gallery-2.webp"
+            // style={{ backgroundImage: "url(assets/images/gallery-2.webp)" }}
           >
             <div className="stretcher-logo">
               <div className="text">
@@ -756,8 +758,9 @@ function Home() {
           </li>
 
           <li
-            className="stretcher-item"
-            style={{ backgroundImage: "url(assets/images/gallery-3.webp)" }}
+            className="stretcher-item lazyload blur-up"
+            data-bgset="assets/images/gallery-3.webp"
+            // style={{ backgroundImage: "url(assets/images/gallery-3.webp)" }}
           >
             <div className="stretcher-logo">
               <div className="text">
@@ -773,8 +776,9 @@ function Home() {
           </li>
 
           <li
-            className="stretcher-item"
-            style={{ backgroundImage: "url(assets/images/gallery-4.webp)" }}
+            className="stretcher-item lazyload blur-up"
+            data-bgset="assets/images/gallery-4.webp"
+            // style={{ backgroundImage: "url(assets/images/gallery-4.webp)" }}
           >
             <div className="stretcher-logo">
               <div className="text">
@@ -968,8 +972,9 @@ function Home() {
               <article>
                 <a href="#">
                   <div
-                    className="image"
-                    style={{ backgroundImage: "url(assets/images/blog-1.jpg)" }}
+                    className="image lazyload blur-up"
+                    data-bgset="assets/images/blog-1.jpg"
+                    // style={{ backgroundImage: "url(assets/images/blog-1.jpg)" }}
                   >
                     {/* <Image
                       src="/assets/images/blog-1.jpg"
@@ -1004,8 +1009,9 @@ function Home() {
               <article>
                 <a href="#">
                   <div
-                    className="image"
-                    style={{ backgroundImage: "url(assets/images/blog-2.jpg)" }}
+                    className="image lazyload blur-up"
+                    data-bgset="assets/images/blog-2.jpg"
+                    // style={{ backgroundImage: "url(assets/images/blog-2.jpg)" }}
                   >
                     {/* <Image
                       src="/assets/images/blog-2.jpg"
@@ -1040,8 +1046,9 @@ function Home() {
               <article>
                 <a href="#">
                   <div
-                    className="image"
-                    style={{ backgroundImage: "url(assets/images/blog-8.jpg)" }}
+                    className="image lazyload blur-up"
+                    data-bgset="assets/images/blog-8.jpg"
+                    // style={{ backgroundImage: "url(assets/images/blog-8.jpg)" }}
                   >
                     {/* <Image
                       src="/assets/images/blog-8.jpg"

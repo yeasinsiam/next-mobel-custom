@@ -1,4 +1,4 @@
-import dynamic from "next/dynamic";
+import Head from "next/head";
 import Layout from "../components/layouts/Layout";
 // imports js
 
@@ -9,13 +9,20 @@ import "../styles/assets/linear-icons.min.css";
 import "../styles/assets/font-awesome.min.css";
 import "../styles/assets/magnific-popup.min.css";
 import "../styles/assets/owl.carousel.min.css";
+// import "../styles/assets/ion-range-slider.css";
+
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Head>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </>
   );
 }
 

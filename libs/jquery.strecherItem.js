@@ -1,8 +1,3 @@
-const $ = require("jquery");
-if (typeof window !== "undefined") {
-  window.$ = window.jQuery = require("jquery");
-}
-
 export default function strecherItemJs() {
   var $strecherItem = $(".stretcher-item");
   $strecherItem.bind({

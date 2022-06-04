@@ -1,12 +1,3 @@
-/*! Magnific Popup - v1.0.0 - 2015-09-17
- * http://dimsemenov.com/plugins/magnific-popup/
- * Copyright (c) 2015 Dmitry Semenov; */
-
-const $ = require("jquery");
-if (typeof window !== "undefined") {
-  window.$ = window.jQuery = require("jquery");
-}
-
 export default function magnificPopupJs() {
   (function (factory) {
     if (typeof define === "function" && define.amd) {

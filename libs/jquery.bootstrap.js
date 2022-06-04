@@ -4,11 +4,6 @@
  * Licensed under the MIT license
  */
 
-const $ = require("jquery");
-if (typeof window !== "undefined") {
-  window.$ = window.jQuery = require("jquery");
-}
-
 export default function bootstrapJs() {
   if (typeof jQuery === "undefined") {
     throw new Error("Bootstrap's JavaScript requires jQuery");

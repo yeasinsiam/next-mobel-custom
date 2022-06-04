@@ -1,4 +1,9 @@
 
+
+
+
+
+
 /*!
     ----------------------------------
     [Table of contents]
@@ -59,7 +64,10 @@
     1. Default body styles
     ----------------------------------
 */
-
+:root {
+  --theme-color: #FFBB00;
+  --theme--hover-color: #3a3d45;
+}
 html{
     -ms-touch-action: pan-y !important;
     touch-action: pan-y !important;
@@ -102,6 +110,10 @@ label,
     width: 100% !important;
   }
 }
+
+
+
+
 
 /*  
     ----------------------------------
@@ -6511,7 +6523,8 @@ footer .footer-social li a {
 
 
 section.header-content .owl-buttons div span ,
-section.owl-icons-frontpage .owl-buttons div span 
+section.owl-icons-frontpage .owl-buttons div span ,
+section.owl-icons-wrapper .owl-buttons div span 
 {
    background-color: transparent !important;
 }
@@ -6528,4 +6541,32 @@ section.owl-icons-frontpage .owl-buttons div span
 .blur-up.lazyloaded {
   -webkit-filter: blur(0);
   filter: blur(0);
+}
+
+/* ion rance slider settings */
+
+/* .irs-line{
+  height: 8px !important;
+}
+.irs--flat .irs-bar{
+ background-color: none !important;
+} */
+
+.irs--square .irs-handle {
+    border-color: var(--theme-hover-color) !important;
+}
+
+.irs--square .irs-line {
+
+  background: var(--theme-color) !important;
+}
+
+.irs--square .irs-from,
+.irs--square .irs-to,
+.irs--square .irs-single {
+  background-color: var(--theme--hover-color) !important;
+}
+
+.irs--square .irs-bar {
+    background-color: var(--theme--hover-color) !important;
 }
