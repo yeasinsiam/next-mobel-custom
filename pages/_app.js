@@ -1,4 +1,7 @@
+import dynamic from "next/dynamic";
 import Layout from "../components/layouts/Layout";
+// imports js
+
 // Import all css file here
 import "../styles/assets/bootstrap.min.css";
 import "../styles/assets/furniture-icons.min.css";

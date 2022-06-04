@@ -1,8 +1,10 @@
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useEffect } from "react";
 import magnificPopupJs from "../libs/jquery.magnific-popup";
 import owlCaroselJs from "../libs/jquery.owl.carousel";
 import strecherItemJs from "../libs/jquery.strecherItem";
+import lazySizes from "../libs/lazySizes";
 
 // const $ = require("jquery");
 // if (typeof window !== "undefined") {
@@ -15,6 +17,7 @@ function Home() {
     owlCaroselJs(); //   owl carousel
     magnificPopupJs(); // magnific Popup\
     strecherItemJs(); // Strecher accordion
+    lazySizes(); // lazy loader background image
   }, []);
 
   return (
@@ -718,8 +721,9 @@ function Home() {
 
         <ul className="stretcher">
           <li
-            className="stretcher-item"
-            style={{ backgroundImage: "url(assets/images/gallery-1.webp);" }}
+            className="stretcher-item lazyload"
+            data-bgset="assets/images/gallery-1.webp"
+            // style={{ backgroundImage: "url(assets/images/gallery-1.webp)" }}
           >
             <div className="stretcher-logo">
               <div className="text">
@@ -736,7 +740,7 @@ function Home() {
 
           <li
             className="stretcher-item"
-            style={{ backgroundImage: "url(assets/images/gallery-2.webp);" }}
+            style={{ backgroundImage: "url(assets/images/gallery-2.webp)" }}
           >
             <div className="stretcher-logo">
               <div className="text">
@@ -753,7 +757,7 @@ function Home() {
 
           <li
             className="stretcher-item"
-            style={{ backgroundImage: "url(assets/images/gallery-3.webp);" }}
+            style={{ backgroundImage: "url(assets/images/gallery-3.webp)" }}
           >
             <div className="stretcher-logo">
               <div className="text">
@@ -770,7 +774,7 @@ function Home() {
 
           <li
             className="stretcher-item"
-            style={{ backgroundImage: "url(assets/images/gallery-4.webp);" }}
+            style={{ backgroundImage: "url(assets/images/gallery-4.webp)" }}
           >
             <div className="stretcher-logo">
               <div className="text">
@@ -814,7 +818,7 @@ function Home() {
                 <a href="#">
                   <div className="image">
                     <Image
-                      src="/assets/images/project-1.jpg"
+                      src="/assets/images/project-1.webp"
                       alt="project image"
                       width={480}
                       height={640}
@@ -921,8 +925,9 @@ function Home() {
 
       {/* <!-- ========================  Banner ======================== --> */}
       <section
-        className="banner"
-        style={{ backgroundImage: "url(assets/images/gallery-4.webp)" }}
+        className="banner lazyload blur-up"
+        data-bgset="assets/images/gallery-4.webp"
+        // style={{ backgroundImage: "url(assets/images/gallery-4.webp)" }}
       >
         <div className="container">
           <div className="row">
@@ -961,12 +966,18 @@ function Home() {
           <div className="row">
             <div className="col-sm-4">
               <article>
-                <a href="article.html">
+                <a href="#">
                   <div
                     className="image"
                     style={{ backgroundImage: "url(assets/images/blog-1.jpg)" }}
                   >
-                    <img src="assets/images/blog-1.jpg" alt="blog image" />
+                    {/* <Image
+                      src="/assets/images/blog-1.jpg"
+                      alt="blog image"
+                      width={640}
+                      height={391}
+                      layout="responsive"
+                    /> */}
                   </div>
                   <div className="entry entry-table">
                     <div className="date-wrapper">
@@ -991,12 +1002,18 @@ function Home() {
 
             <div className="col-sm-4">
               <article>
-                <a href="article.html">
+                <a href="#">
                   <div
                     className="image"
                     style={{ backgroundImage: "url(assets/images/blog-2.jpg)" }}
                   >
-                    <img src="assets/images/blog-1.jpg" alt="blog image" />
+                    {/* <Image
+                      src="/assets/images/blog-2.jpg"
+                      alt="blog image"
+                      width={640}
+                      height={391}
+                      layout="responsive"
+                    /> */}
                   </div>
                   <div className="entry entry-table">
                     <div className="date-wrapper">
@@ -1021,12 +1038,18 @@ function Home() {
 
             <div className="col-sm-4">
               <article>
-                <a href="article.html">
+                <a href="#">
                   <div
                     className="image"
                     style={{ backgroundImage: "url(assets/images/blog-8.jpg)" }}
                   >
-                    <img src="assets/images/blog-8.jpg" alt="blog image" />
+                    {/* <Image
+                      src="/assets/images/blog-8.jpg"
+                      alt="blog image"
+                      width={640}
+                      height={391}
+                      layout="responsive"
+                    /> */}
                   </div>
                   <div className="entry entry-table">
                     <div className="date-wrapper">
@@ -1078,22 +1101,58 @@ function Home() {
 
         <div className="gallery clearfix">
           <a className="item" href="#">
-            <img src="assets/images/square-1.jpg" alt="Alternate Text" />
+            <Image
+              src="/assets/images/square-1.jpg"
+              alt="instragram one"
+              width={320}
+              height={320}
+              layout="responsive"
+            />
           </a>
           <a className="item" href="#">
-            <img src="assets/images/square-2.jpg" alt="Alternate Text" />
+            <Image
+              src="/assets/images/square-2.jpg"
+              alt="instragram one"
+              width={320}
+              height={320}
+              layout="responsive"
+            />
           </a>
           <a className="item" href="#">
-            <img src="assets/images/square-3.jpg" alt="Alternate Text" />
+            <Image
+              src="/assets/images/square-3.jpg"
+              alt="instragram one"
+              width={320}
+              height={320}
+              layout="responsive"
+            />
           </a>
           <a className="item" href="#">
-            <img src="assets/images/square-4.jpg" alt="Alternate Text" />
+            <Image
+              src="/assets/images/square-4.jpg"
+              alt="instragram one"
+              width={320}
+              height={320}
+              layout="responsive"
+            />
           </a>
           <a className="item" href="#">
-            <img src="assets/images/square-5.jpg" alt="Alternate Text" />
+            <Image
+              src="/assets/images/square-5.jpg"
+              alt="instragram one"
+              width={320}
+              height={320}
+              layout="responsive"
+            />
           </a>
           <a className="item" href="#">
-            <img src="assets/images/square-6.jpg" alt="Alternate Text" />
+            <Image
+              src="/assets/images/square-6.jpg"
+              alt="instragram one"
+              width={320}
+              height={320}
+              layout="responsive"
+            />
           </a>
         </div>
       </section>
