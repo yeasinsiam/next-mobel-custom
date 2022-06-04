@@ -8,9 +8,6 @@ const arrowIcons = [
 ];
 
 export default function owlCaroselJs() {
-  $.htmlPrefilter = function (html) {
-    return html;
-  };
   if (typeof Object.create !== "function") {
     Object.create = function (obj) {
       function F() {}

@@ -1,3 +1,8 @@
+const $ = require("jquery");
+if (typeof window !== "undefined") {
+  window.$ = window.jQuery = require("jquery");
+}
+
 export default function lazySizes() {
   (function (window, factory) {
     var lazySizes = factory(window, window.document, Date);
