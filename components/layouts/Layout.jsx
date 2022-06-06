@@ -7,6 +7,7 @@ function Layout({ children }) {
   // Defined States
   const [toggleMobileMenu, setToggleMobileMenu] = useState(false);
   const [isNavbarSticked, setIsNavbarSticked] = useState(false);
+  const [initialPageLoading, setinItialPageLoading] = useState(true);
 
   const [scrollToTopVisible, setScrollToTopVisible] = useState(false);
 
@@ -26,6 +27,9 @@ function Layout({ children }) {
   };
 
   useEffect(() => {
+    // remove initial loading
+    setinItialPageLoading(false);
+
     window.addEventListener("scroll", handleWindowScroll); //  scroll events
 
     // -------------------(Assestial default  initializations)-----------------\\
@@ -46,6 +50,9 @@ function Layout({ children }) {
         color="#ffbb00"
         options={{ showSpinner: false }}
       />
+      <div
+        className={`page-loader ${!initialPageLoading ? "loaded" : ""}`}
+      ></div>
       <div className="wraper">
         {/*     <!-- ======================== Navigation ======================== --> */}
         <nav className={`navbar-fixed ${isNavbarSticked && "navbar-sticked"}`}>
