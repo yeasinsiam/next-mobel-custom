@@ -1,25 +1,18 @@
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useEffect } from "react";
+import ProductPriceFilter from "../components/layouts/filters/ProductPriceFilter";
 import bootstrapJs from "../libs/jquery.bootstrap";
 import magnificPopupJs from "../libs/jquery.magnific-popup";
 import owlCaroselJs from "../libs/jquery.owl.carousel";
 import strecherItemJs from "../libs/jquery.strecherItem";
-const IonRangeSlider = dynamic(() => import("react-ion-slider"), {
-  ssr: false,
-});
-
-// const $ = require("jquery");
-// if (typeof window !== "undefined") {
-//   window.$ = window.jQuery = require("jquery");
-// }
 
 function Shop() {
   useEffect(function mount() {
     owlCaroselJs(); //   owl carousel
     magnificPopupJs(); // magnific Popup\
     strecherItemJs(); // Strecher accordion
-    bootstrapJs(); // Bootstrap js
+    // bootstrapJs(); // Bootstrap js
   }, []);
 
   return (
@@ -206,11 +199,11 @@ function Shop() {
           <div className="row">
             <div className="col-md-3 col-xs-12">
               <div className="filters">
-                <div className="filter-box active">
+                <ProductPriceFilter />
+                {/* <div className="filter-box active">
                   <div className="title">Price</div>
                   <div className="filter-content" style={{ display: "block" }}>
                     <div className="price-filter">
-                      {/* <input type="text" id="range-price-slider" name="range" /> */}
                       <IonRangeSlider
                         type="double"
                         min={0}
@@ -224,7 +217,8 @@ function Shop() {
                       />
                     </div>
                   </div>
-                </div>
+                </div> */}
+
                 <div className="filter-box active">
                   <div className="title">Availability</div>
                   <div className="filter-content" style={{ display: "block" }}>

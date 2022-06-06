@@ -766,10 +766,15 @@ function Layout({ children }) {
                     </div>
                   </li> */}
                   <li>
+                    <Link href="/contact">
+                      <a>Contact</a>
+                    </Link>
+                  </li>
+                  {/* <li>
                     <Link href="/shortcode">
                       <a>Shortcodes</a>
                     </Link>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
             </div>

@@ -1722,9 +1722,3 @@ export default function owlCaroselJs() {
     });
   });
 }
-
-// export function owlCaroselIconSlide() {}
-
-// //Product slider
-
-// export function owlCaroselProductSlide() {}
