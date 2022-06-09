@@ -156,7 +156,7 @@ label,
 
 .page-loader.loaded {
   width: 0;
-  left: 0;
+  /* left: 0; */
   -moz-transition: all 1s cubic-bezier(0.8, 0.2, 0.2, 0.9);
   -o-transition: all 1s cubic-bezier(0.8, 0.2, 0.2, 0.9);
   -webkit-transition: all 1s cubic-bezier(0.8, 0.2, 0.2, 0.9);
