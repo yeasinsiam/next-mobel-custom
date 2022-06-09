@@ -126,7 +126,7 @@ label,
 
 .page-loader:before {
   font-family: 'LinearIcons';
-  speak: none;
+  /* speak: none; */
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -3307,7 +3307,7 @@ nav .cart-wrapper.open {
   font-weight: normal;
   font-stretch: normal;
   text-transform: none;
-  speak: none;
+  /* speak: none; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 60px;
