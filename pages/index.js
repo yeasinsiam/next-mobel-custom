@@ -24,9 +24,9 @@ function Home() {
       <section className="header-content">
         <div className="owl-slider">
           <div
-            className="item lazyload"
-            data-bgset="assets/images/gallery-3.webp"
-            // style={{ backgroundImage: "url(assets/images/gallery-3.webp)" }}
+            className="item"
+            // data-bgset="assets/images/gallery-3.webp"
+            style={{ backgroundImage: "url(assets/images/gallery-3.webp)" }}
           >
             <div className="box">
               <div className="container">
@@ -51,9 +51,9 @@ function Home() {
             </div>
           </div>
           <div
-            className="item lazyload"
-            data-bgset="assets/images/gallery-1.webp"
-            // style={{ backgroundImage: "url(assets/images/gallery-1.webp)" }}
+            className="item"
+            // data-bgset="assets/images/gallery-1.webp"
+            style={{ backgroundImage: "url(assets/images/gallery-1.webp)" }}
           >
             <div className="box">
               <div className="container">
@@ -77,9 +77,9 @@ function Home() {
           </div>
 
           <div
-            className="item lazyload"
-            data-bgset="assets/images/gallery-2.webp"
-            // style={{ backgroundImage: "url(assets/images/gallery-2.webp)" }}
+            className="item"
+            // data-bgset="assets/images/gallery-2.webp"
+            style={{ backgroundImage: "url(assets/images/gallery-2.webp)" }}
           >
             <div className="box">
               <div className="container">

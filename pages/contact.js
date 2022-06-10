@@ -6,7 +6,7 @@ function Contact() {
       {/*  <!-- ========================  Main header ======================== --> */}
       <section
         className="main-header"
-        style={{ backgroundImage: "url(assets/images/gallery-2.jpg)" }}
+        style={{ backgroundImage: "url(assets/images/gallery-2.webp)" }}
       >
         <header>
           <div className="container">

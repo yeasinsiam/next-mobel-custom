@@ -2093,4 +2093,25 @@ addSwipeGesture: function() {
       },
     },
   });
+
+  // Main popup gallery
+  // ----------------------------------------------------------------
+  $(".open-popup-gallery").magnificPopup({
+    delegate: "a",
+    type: "image",
+    tLoading: "Loading image #%curr%...",
+    gallery: {
+      enabled: true,
+      navigateByImgClick: true,
+      preload: [0, 1], // Will preload 0 - before current, and 1 after the current image
+    },
+    fixedContentPos: false,
+    fixedBgPos: true,
+    overflowY: "auto",
+    closeBtnInside: true,
+    preloader: false,
+    midClick: true,
+    removalDelay: 300,
+    mainClass: "my-mfp-zoom-in",
+  });
 }

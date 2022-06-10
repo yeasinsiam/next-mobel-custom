@@ -19,8 +19,9 @@ function Shop() {
     <>
       {/*  <!-- ======================== Main header ======================== --> */}
       <section
-        className="main-header lazyload"
-        data-bgset="assets/images/gallery-3.webp"
+        // className="main-header lazyload"
+        className="main-header"
+        style={{ backgroundImage: "url(assets/images/gallery-2.webp)" }}
       >
         <header>
           <div className="container">

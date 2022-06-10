@@ -7,7 +7,7 @@ function Layout({ children }) {
   // Defined States
   const [toggleMobileMenu, setToggleMobileMenu] = useState(false);
   const [isNavbarSticked, setIsNavbarSticked] = useState(false);
-  const [initialPageLoading, setinItialPageLoading] = useState(true);
+  // const [initialPageLoading, setinItialPageLoading] = useState(true);
 
   const [scrollToTopVisible, setScrollToTopVisible] = useState(false);
 
@@ -28,7 +28,7 @@ function Layout({ children }) {
 
   useEffect(() => {
     // remove initial loading
-    setinItialPageLoading(false);
+    // setinItialPageLoading(false);
 
     window.addEventListener("scroll", handleWindowScroll); //  scroll events
     handleWindowScroll();
@@ -45,14 +45,15 @@ function Layout({ children }) {
 
   return (
     <>
+      {/* <div
+        className={`page-loader ${!initialPageLoading ? "loaded" : ""}`}
+      ></div> */}
       <NextNProgress
         showOnShallow={true}
         color="#ffbb00"
         options={{ showSpinner: false }}
       />
-      <div
-        className={`page-loader ${!initialPageLoading ? "loaded" : ""}`}
-      ></div>
+
       <div className="wraper">
         {/*     <!-- ======================== Navigation ======================== --> */}
         <nav className={`navbar-fixed ${isNavbarSticked && "navbar-sticked"}`}>
@@ -319,9 +320,9 @@ function Layout({ children }) {
                     </div>
                   </li> */}
 
-                  {/* <li>
+                  <li>
                     <a href="#">
-                      Shop{" "}
+                      Checkouts
                       <span className="open-dropdown">
                         <i className="fa fa-angle-down"></i>
                       </span>
@@ -331,26 +332,24 @@ function Layout({ children }) {
                         <div className="box-2">
                           <div className="box clearfix">
                             <ul>
-                              <li className="label">Shop</li>
+                              {/* <li className="label">Shop</li> */}
                               <li>
-                                <a href="products-grid.html">Products grid</a>
+                                <Link href="/cart">
+                                  <a>Cart</a>
+                                </Link>
                               </li>
                               <li>
-                                <a href="products-list.html">Products list</a>
+                                <Link href="/checkout">
+                                  <a>Checkout</a>
+                                </Link>
                               </li>
                               <li>
-                                <a href="category.html">Products intro</a>
-                              </li>
-                              <li>
-                                <a href="products-topbar.html">
-                                  Products topbar
-                                </a>
-                              </li>
-                              <li>
-                                <a href="product.html">Product overview</a>
+                                <Link href="/order">
+                                  <a>Order</a>
+                                </Link>
                               </li>
                             </ul>
-                            <ul>
+                            {/* <ul>
                               <li className="label">Shop Isotope</li>
                               <li>
                                 <a href="products-grid-isotope.html">
@@ -387,12 +386,12 @@ function Layout({ children }) {
                               <li>
                                 <a href="checkout-4.html">Checkout - Receipt</a>
                               </li>
-                            </ul>
+                            </ul> */}
                           </div>
                         </div>
                       </div>
                     </div>
-                  </li> */}
+                  </li>
 
                   <li>
                     <a href="#">
