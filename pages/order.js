@@ -39,13 +39,13 @@ function Order() {
         <div className="container">
           <div className="stepper">
             <ul className="row">
-              <li className="col-md-3 ">
+              <li className="col-md-4 ">
                 <span data-text="Cart items"></span>
               </li>
-              <li className="col-md-3">
+              <li className="col-md-4">
                 <span data-text="Checkout"></span>
               </li>
-              <li className="col-md-3 active">
+              <li className="col-md-4 active">
                 <span data-text="Order"></span>
               </li>
             </ul>
