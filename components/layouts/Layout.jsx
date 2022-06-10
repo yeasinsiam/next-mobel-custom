@@ -31,7 +31,7 @@ function Layout({ children }) {
     setinItialPageLoading(false);
 
     window.addEventListener("scroll", handleWindowScroll); //  scroll events
-
+    handleWindowScroll();
     // -------------------(Assestial default  initializations)-----------------\\
     // lazyLoader(); // lazy loader background image
     lazyLoader();
@@ -123,14 +123,16 @@ function Layout({ children }) {
             </div>
 
             <div className="navigation navigation-main">
-              <a href="#" className="logo">
-                <Image
-                  src="/assets/images/logo.png"
-                  alt="nadrate_ounak_logo"
-                  width={141}
-                  height={50}
-                />
-              </a>
+              <Link href="/">
+                <a className="logo">
+                  <Image
+                    src="/assets/images/logo.png"
+                    alt="nadrate_ounak_logo"
+                    width={141}
+                    height={50}
+                  />
+                </a>
+              </Link>
 
               <a
                 href="#"
@@ -161,6 +163,11 @@ function Layout({ children }) {
                   <li>
                     <Link href="/shop">
                       <a>Shop</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/product">
+                      <a>Product</a>
                     </Link>
                   </li>
 
