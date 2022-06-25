@@ -31,6 +31,12 @@ function Layout({ children }) {
   const initialPageLoader = () => {
     if (document.readyState === "ready" || document.readyState === "complete") {
       setIsInitialPageLoaded(true);
+    } else {
+      document.onreadystatechange = function () {
+        if (document.readyState == "complete") {
+          setIsInitialPageLoaded(true);
+        }
+      };
     }
   };
 
