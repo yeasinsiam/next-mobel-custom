@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 
 function Layout({ children }) {
   // Defined States
+  const [isInitialPageLoaded, setIsInitialPageLoaded] = useState(false);
   const [toggleMobileMenu, setToggleMobileMenu] = useState(false);
   const [isNavbarSticked, setIsNavbarSticked] = useState(false);
   // const [initialPageLoading, setinItialPageLoading] = useState(true);
@@ -26,6 +27,13 @@ function Layout({ children }) {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   };
 
+  // initial page loaeer function
+  const initialPageLoader = () => {
+    if (document.readyState === "ready" || document.readyState === "complete") {
+      setIsInitialPageLoaded(true);
+    }
+  };
+
   useEffect(() => {
     // remove initial loading
     // setinItialPageLoading(false);
@@ -36,7 +44,8 @@ function Layout({ children }) {
     // lazyLoader(); // lazy loader background image
     lazyLoader();
 
-    // end lazy load code
+    // Set Up page initial loader
+    initialPageLoader();
 
     return () => {
       window.removeEventListener("scroll", handleWindowScroll);
@@ -53,7 +62,9 @@ function Layout({ children }) {
         color="#ffbb00"
         options={{ showSpinner: false }}
       />
-
+      <div
+        className={`page-loader ${isInitialPageLoaded ? "loaded" : ""}`}
+      ></div>
       <div className="wraper">
         {/*     <!-- ======================== Navigation ======================== --> */}
         <nav className={`navbar-fixed ${isNavbarSticked && "navbar-sticked"}`}>

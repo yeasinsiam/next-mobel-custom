@@ -115,7 +115,7 @@ label,
     2. Page loader
     ----------------------------------
 */
-/* .page-loader {
+.page-loader {
   position: absolute;
   top: 0;
   left: 0;
@@ -124,8 +124,8 @@ label,
   overflow: hidden;
   z-index: 999999;
   background-color: white;
-} */
-/* 
+} 
+ 
 .page-loader:before {
   font-family: 'LinearIcons';
   font-style: normal;
@@ -165,7 +165,7 @@ label,
 
 .page-loader.loaded:before {
   opacity: 0;
-} */
+} 
 
 /*  
     ----------------------------------
