@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-css-tags */
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import Script from "next/script";
 
@@ -14,6 +15,12 @@ class MyDocument extends Document {
           <link
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap"
             rel="stylesheet"
+          />
+          {/* initial liner icon */}
+          <link
+            rel="stylesheet"
+            media="all"
+            href="/assets/linear-icons.min.css"
           />
         </Head>
         <body>
