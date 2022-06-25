@@ -115,19 +115,19 @@ label,
     2. Page loader
     ----------------------------------
 */
+
 .page-loader {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: fixed;
   width: 100%;
   height: 100%;
   overflow: hidden;
   z-index: 999999;
   background-color: white;
-} 
- 
+}
+
 .page-loader:before {
   font-family: 'LinearIcons';
+  speak: none;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -157,6 +157,7 @@ label,
 
 .page-loader.loaded {
   width: 0;
+  left: 0;
   -moz-transition: all 1s cubic-bezier(0.8, 0.2, 0.2, 0.9);
   -o-transition: all 1s cubic-bezier(0.8, 0.2, 0.2, 0.9);
   -webkit-transition: all 1s cubic-bezier(0.8, 0.2, 0.2, 0.9);
@@ -165,8 +166,7 @@ label,
 
 .page-loader.loaded:before {
   opacity: 0;
-} 
-
+}
 /*  
     ----------------------------------
     3. Headings
