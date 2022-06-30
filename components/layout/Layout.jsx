@@ -1,17 +1,38 @@
+import { setInitialPageLoading } from "@redux/actions";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import NextNProgress from "nextjs-progressbar";
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+// Components
+import {
+  GlobalProductSearchButton,
+  GlobalProductSearchElement,
+} from "./GlobalProductSearch/GlobalProductSearch";
+
+// const { GlobalProductSearchButton, GlobalProductSearchElement } = dynamic(() =>
+//   import("./GlobalProductSearch/GlobalProductSearch")
+// );
+// const GlobalProductSearchButton = dynamic(() =>
+//   import("components/layout/GlobalProductSearch/GlobalProductSearchButton")
+// );
+// const GlobalProductSearchElement = dynamic(() =>
+//   import("components/layout/GlobalProductSearch/GlobalProductSearchElement")
+// );
 
 function Layout({ children }) {
+  const dispatch = useDispatch();
   // Defined States
+  // const [isInitialPageLoaded, setIsInitialPageLoaded] = useState(false);
+  const initialPageLoading = useSelector(
+    (state) => state.options.initialPageLoading
+  );
   const [toggleMobileMenu, setToggleMobileMenu] = useState(false);
   const [isNavbarSticked, setIsNavbarSticked] = useState(false);
-  // const [initialPageLoading, setinItialPageLoading] = useState(true);
-
   const [scrollToTopVisible, setScrollToTopVisible] = useState(false);
 
-  // Defiend functions
   const handleWindowScroll = () => {
     // Window scroll handler
     window.pageYOffset > 94
@@ -26,33 +47,45 @@ function Layout({ children }) {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   };
 
-  useEffect(() => {
-    // remove initial loading
-    // setinItialPageLoading(false);
+  // initial page loaeer function
+  const initialPageLoader = () => {
+    if (document.readyState === "ready" || document.readyState === "complete") {
+      dispatch(setInitialPageLoading(false));
+    } else {
+      document.onreadystatechange = function () {
+        if (document.readyState == "complete") {
+          dispatch(setInitialPageLoading(false));
+        }
+      };
+    }
+  };
 
+  // Initial Time render
+  useEffect(() => {
     window.addEventListener("scroll", handleWindowScroll); //  scroll events
     handleWindowScroll();
     // -------------------(Assestial default  initializations)-----------------\\
-    // lazyLoader(); // lazy loader background image
-    lazyLoader();
+    lazyLoader(); // lazy loader background image
 
-    // end lazy load code
+    // Set Up page initial loader
+    initialPageLoader();
 
     return () => {
       window.removeEventListener("scroll", handleWindowScroll);
     };
+    // eslint-disable-next-line
   }, []);
 
   return (
     <>
-      {/* <div
-        className={`page-loader ${!initialPageLoading ? "loaded" : ""}`}
-      ></div> */}
       <NextNProgress
-        showOnShallow={true}
+        showOnShallow={false}
         color="#ffbb00"
-        options={{ showSpinner: false }}
+        // options={{ showSpinner: false }}
       />
+      <div
+        className={`page-loader ${!initialPageLoading ? "loaded" : ""}`}
+      ></div>
 
       <div className="wraper">
         {/*     <!-- ======================== Navigation ======================== --> */}
@@ -61,65 +94,17 @@ function Layout({ children }) {
             <div className="navigation navigation-top clearfix">
               <ul>
                 <li>
-                  <a href="#">
-                    {/* <FontAwesomeIcon icon={faFacebookF} /> */}
+                  <a href="https://www.facebook.com/siam.rahaman.16/">
                     <i className="fa fa-facebook"></i>
                   </a>
                 </li>
-                <li>
-                  <a href="#">
-                    {/* <FontAwesomeIcon icon={faTwitter} /> */}
-                    <i className="fa fa-twitter"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    {/* <FontAwesomeIcon icon={faYoutube} /> */}
-                    <i className="fa fa-youtube"></i>
-                  </a>
-                </li>
-                <li className="nav-settings">
-                  <a href="#" className="nav-settings-value">
-                    {" "}
-                    USD $
-                  </a>
-                  <ul className="nav-settings-list">
-                    <li>USD $</li>
-                    <li>EUR €</li>
-                    <li>CHF Fr.</li>
-                    <li>GBP £</li>
-                  </ul>
-                </li>
 
-                <li className="nav-settings">
-                  <a href="#" className="nav-settings-value">
-                    {" "}
-                    ENG
-                  </a>
-                  <ul className="nav-settings-list">
-                    <li>ENG</li>
-                    <li>لعربية</li>
-                  </ul>
-                </li>
                 <li>
-                  <a href="#" className="open-login">
-                    <i className="icon icon-user"></i>
-                    {/* <FontAwesomeIcon icon={faUser} /> */}
-                  </a>
+                  <GlobalProductSearchButton />
                 </li>
-                <li>
-                  <a href="#" className="open-search">
-                    <i className="icon icon-magnifier"></i>
-                    {/* <FontAwesomeIcon icon={faMagnifyingGlass} /> */}
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="open-cart">
-                    {/* <FontAwesomeIcon icon={faCartShopping} /> */}
-                    <i className="icon icon-cart"></i>
-                    <span>3</span>
-                  </a>
-                </li>
+                {/* <li>
+                  <GlobalCartButton />
+                </li> */}
               </ul>
             </div>
 
@@ -161,7 +146,7 @@ function Layout({ children }) {
                       <a>Home</a>
                     </Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link href="/shop">
                       <a>Shop</a>
                     </Link>
@@ -171,154 +156,6 @@ function Layout({ children }) {
                       <a>Product</a>
                     </Link>
                   </li>
-
-                  {/* <li>
-                    <a href="#">
-                      Pages{" "}
-                      <span className="open-dropdown">
-                        <i className="fa fa-angle-down"></i>
-                      </span>
-                    </a>
-                    <div className="navbar-dropdown">
-                      <div className="navbar-box">
-                        <div className="box-1">
-                          <div className="box">
-                            <div className="h2">Find your inspiration</div>
-                            <div className="clearfix">
-                              <p>
-                                Homes that differ in terms of style, concept and
-                                architectural solutions have been furnished by
-                                Furniture Factory. These spaces tell of an
-                                international lifestyle that expresses
-                                modernity, research and a creative spirit.
-                              </p>
-                              <a
-                                className="btn btn-clean btn-big"
-                                href="products-grid.html"
-                              >
-                                Shop now
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="box-2">
-                          <div className="box clearfix">
-                            <div className="row">
-                              <div className="col-md-4">
-                                <ul>
-                                  <li className="label">Homepage</li>
-                                  <li>
-                                    <a href="#">Home - Slider</a>
-                                  </li>
-                                  <li>
-                                    <a href="index-2.html">
-                                      Home - Tabsy gallery
-                                    </a>
-                                  </li>
-                                  <li>
-                                    <a href="index-3.html">
-                                      Home - Slider full screen
-                                    </a>
-                                  </li>
-                                  <li>
-                                    <a href="index-4.html">Home - Info icons</a>
-                                  </li>
-                                  <li>
-                                    <a href="index-xmas.html">Home - Xmas</a>
-                                  </li>
-                                  <li>
-                                    <a href="index-rtl.html">
-                                      Home - RTL{" "}
-                                      <span className="label label-warning">
-                                        New
-                                      </span>
-                                    </a>
-                                  </li>
-                                  <li>
-                                    <a href="index-5.html">Onepage</a>
-                                  </li>
-                                  <li>
-                                    <a href="index-6.html">
-                                      Onepage - Filters{" "}
-                                      <span className="label label-warning">
-                                        Isotope
-                                      </span>
-                                    </a>
-                                  </li>
-                                </ul>
-                              </div>
-                              <div className="col-md-4">
-                                <ul>
-                                  <li className="label">Blog</li>
-                                  <li>
-                                    <a href="blog-grid.html">Blog grid</a>
-                                  </li>
-                                  <li>
-                                    <a href="blog-list.html">Blog list</a>
-                                  </li>
-                                  <li>
-                                    <a href="blog-grid-fullpage.html">
-                                      Blog fullpage
-                                    </a>
-                                  </li>
-                                  <li>
-                                    <a href="ideas.html">Blog ideas</a>
-                                  </li>
-                                  <li>
-                                    <a href="article.html">Blog article</a>
-                                  </li>
-                                </ul>
-                              </div>
-                              <div className="col-md-4">
-                                <ul>
-                                  <li className="label">Pages</li>
-                                  <li>
-                                    <a href="about.html">About us</a>
-                                  </li>
-                                  <li>
-                                    <a href="contact.html">Contact</a>
-                                  </li>
-                                  <li>
-                                    <a href="login.html">
-                                      Login & Register{" "}
-                                      <span className="label label-warning">
-                                        New
-                                      </span>
-                                    </a>
-                                  </li>
-                                </ul>
-                                <ul>
-                                  <li className="label">Extras</li>
-                                  <li>
-                                    <Link href="/shortcode">
-                                      <a>Shortcodes</a>
-                                    </Link>
-                                  </li>
-                                  <li>
-                                    <a href="email-receipt.html">
-                                      Email template{" "}
-                                      <span className="label label-warning">
-                                        New
-                                      </span>
-                                    </a>
-                                  </li>
-                                  <li>
-                                    <a href="404.html">
-                                      Not found 404{" "}
-                                      <span className="label label-warning">
-                                        New
-                                      </span>
-                                    </a>
-                                  </li>
-                                </ul>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li> */}
 
                   <li>
                     <a href="#">
@@ -332,7 +169,6 @@ function Layout({ children }) {
                         <div className="box-2">
                           <div className="box clearfix">
                             <ul>
-                              {/* <li className="label">Shop</li> */}
                               <li>
                                 <Link href="/cart">
                                   <a>Cart</a>
@@ -349,57 +185,21 @@ function Layout({ children }) {
                                 </Link>
                               </li>
                             </ul>
-                            {/* <ul>
-                              <li className="label">Shop Isotope</li>
-                              <li>
-                                <a href="products-grid-isotope.html">
-                                  Products filters{" "}
-                                  <span className="label label-warning">
-                                    New
-                                  </span>
-                                </a>
-                              </li>
-                              <li>
-                                <a href="products-topbar-isotope.html">
-                                  Products topbar{" "}
-                                  <span className="label label-warning">
-                                    New
-                                  </span>
-                                </a>
-                              </li>
-                            </ul>
-                            <ul>
-                              <li className="label">Checkout</li>
-                              <li>
-                                <a href="checkout-1.html">
-                                  Checkout - Cart items
-                                </a>
-                              </li>
-                              <li>
-                                <a href="checkout-2.html">
-                                  Checkout - Delivery
-                                </a>
-                              </li>
-                              <li>
-                                <a href="checkout-3.html">Checkout - Payment</a>
-                              </li>
-                              <li>
-                                <a href="checkout-4.html">Checkout - Receipt</a>
-                              </li>
-                            </ul> */}
                           </div>
                         </div>
                       </div>
                     </div>
-                  </li>
+                  </li>  */}
 
                   <li>
-                    <a href="#">
-                      Icons{" "}
-                      <span className="open-dropdown">
-                        <i className="fa fa-angle-down"></i>
-                      </span>
-                    </a>
+                    <Link href="/products">
+                      <a>
+                        Products
+                        <span className="open-dropdown">
+                          <i className="fa fa-angle-down"></i>
+                        </span>
+                      </a>
+                    </Link>
                     <div className="navbar-dropdown">
                       <div className="navbar-box">
                         <div className="box-1">
@@ -421,12 +221,9 @@ function Layout({ children }) {
                                 international lifestyle that expresses
                                 modernity, research and a creative spirit.
                               </p>
-                              <a
-                                className="btn btn-clean btn-big"
-                                href="ideas.html"
-                              >
-                                Explore
-                              </a>
+                              <Link href="/products">
+                                <a className="btn btn-clean btn-big">Explore</a>
+                              </Link>
                             </div>
                           </div>
                         </div>
@@ -602,194 +399,26 @@ function Layout({ children }) {
                     </div>
                   </li>
 
-                  {/* <li>
-                    <a href="#">
-                      Megamenu{" "}
-                      <span className="open-dropdown">
-                        <i className="fa fa-angle-down"></i>
-                      </span>
-                    </a>
-                    <div className="navbar-dropdown">
-                      <div className="navbar-box">
-                        <div className="box-2">
-                          <div className="box clearfix">
-                            <div className="row">
-                              <div className="clearfix">
-                                <div className="col-md-3">
-                                  <ul>
-                                    <li className="label">Seating</li>
-                                    <li>
-                                      <a href="#">Benches</a>
-                                    </li>
-                                    <li>
-                                      <a href="#">
-                                        Submenu{" "}
-                                        <span className="label label-warning">
-                                          New
-                                        </span>
-                                      </a>
-                                    </li>
-                                    <li>
-                                      <a href="#">Chaises</a>
-                                    </li>
-                                    <li>
-                                      <a href="#">Recliners</a>
-                                    </li>
-                                  </ul>
-                                </div>
-                                <div className="col-md-3">
-                                  <ul>
-                                    <li className="label">Storage</li>
-                                    <li>
-                                      <a href="#">Bockcases</a>
-                                    </li>
-                                    <li>
-                                      <a href="#">Closets</a>
-                                    </li>
-                                    <li>
-                                      <a href="#">Wardrobes</a>
-                                    </li>
-                                    <li>
-                                      <a href="#">
-                                        Dressers{" "}
-                                        <span className="label label-success">
-                                          Trending
-                                        </span>
-                                      </a>
-                                    </li>
-                                    <li>
-                                      <a href="#">Sideboards </a>
-                                    </li>
-                                  </ul>
-                                </div>
-                                <div className="col-md-3">
-                                  <ul>
-                                    <li className="label">Tables</li>
-                                    <li>
-                                      <a href="#">Consoles</a>
-                                    </li>
-                                    <li>
-                                      <a href="#">Desks</a>
-                                    </li>
-                                    <li>
-                                      <a href="#">Dining tables</a>
-                                    </li>
-                                    <li>
-                                      <a href="#">Occasional tables</a>
-                                    </li>
-                                  </ul>
-                                </div>
-                                <div className="col-md-3">
-                                  <ul>
-                                    <li className="label">Chairs</li>
-                                    <li>
-                                      <a href="#">Dining Chairs</a>
-                                    </li>
-                                    <li>
-                                      <a href="#">Office Chairs</a>
-                                    </li>
-                                    <li>
-                                      <a href="#">
-                                        Lounge Chairs{" "}
-                                        <span className="label label-warning">
-                                          Offer
-                                        </span>
-                                      </a>
-                                    </li>
-                                    <li>
-                                      <a href="#">Stools</a>
-                                    </li>
-                                  </ul>
-                                </div>
-                              </div>
-                              <div className="clearfix">
-                                <div className="col-md-3">
-                                  <ul>
-                                    <li className="label">Kitchen</li>
-                                    <li>
-                                      <a href="#">Kitchen types</a>
-                                    </li>
-                                    <li>
-                                      <a href="#">
-                                        Kitchen elements{" "}
-                                        <span className="label label-info">
-                                          50%
-                                        </span>
-                                      </a>
-                                    </li>
-                                    <li>
-                                      <a href="#">Bars</a>
-                                    </li>
-                                    <li>
-                                      <a href="#">Wall decoration</a>
-                                    </li>
-                                  </ul>
-                                </div>
-                                <div className="col-md-3">
-                                  <ul>
-                                    <li className="label">Accessories</li>
-                                    <li>
-                                      <a href="#">Coat Racks</a>
-                                    </li>
-                                    <li>
-                                      <a href="#">
-                                        Lazy bags{" "}
-                                        <span className="label label-success">
-                                          Info
-                                        </span>
-                                      </a>
-                                    </li>
-                                  </ul>
-                                </div>
-                                <div className="col-md-3">
-                                  <ul>
-                                    <li className="label">Beds</li>
-                                    <li>
-                                      <a href="#">Beds</a>
-                                    </li>
-                                    <li>
-                                      <a href="#">Sofabeds</a>
-                                    </li>
-                                  </ul>
-                                </div>
-                                <div className="col-md-3">
-                                  <ul>
-                                    <li className="label">Entertainment</li>
-                                    <li>
-                                      <a href="#">
-                                        Wall units{" "}
-                                        <span className="label label-warning">
-                                          Popular
-                                        </span>
-                                      </a>
-                                    </li>
-                                    <li>
-                                      <a href="#">Media sets</a>
-                                    </li>
-                                    <li>
-                                      <a href="#">Decoration</a>
-                                    </li>
-                                  </ul>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li> */}
+                  <li>
+                    <Link href="/about-us">
+                      <a>About Us</a>
+                    </Link>
+                  </li>
                   <li>
                     <Link href="/contact">
                       <a>Contact</a>
                     </Link>
                   </li>
-                  {/* <li>
-                    <Link href="/shortcode">
-                      <a>Shortcodes</a>
-                    </Link>
-                  </li> */}
                 </ul>
               </div>
+
+              {/* <!-- ==========  Search wrapper ========== --> */}
+              <GlobalProductSearchElement />
+
+              {/* <!-- ==========  Cart wrapper ========== --> */}
+
+              {/* <GlobalCartElement /> */}
+              {/* <!--/cart-wrapper--> */}
             </div>
           </div>
         </nav>
@@ -879,7 +508,6 @@ function Layout({ children }) {
                       className="form-control"
                       type="text"
                       name="email"
-                      // value=""
                       placeholder="Email address"
                     />
                     <input
@@ -904,7 +532,7 @@ function Layout({ children }) {
                 <div className="col-sm-6 links">
                   <ul>
                     <li>
-                      <a href="#">
+                      <a href="https://www.facebook.com/siam.rahaman.16/">
                         <i className="fa fa-facebook"></i>
                       </a>
                     </li>

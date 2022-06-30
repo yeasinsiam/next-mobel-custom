@@ -115,19 +115,18 @@ label,
     2. Page loader
     ----------------------------------
 */
-/* .page-loader {
-  position: absolute;
-  top: 0;
-  left: 0;
+.page-loader {
+  position: fixed;
   width: 100%;
   height: 100%;
   overflow: hidden;
   z-index: 999999;
   background-color: white;
-} */
-/* 
+}
+
 .page-loader:before {
   font-family: 'LinearIcons';
+  speak: none;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -153,10 +152,11 @@ label,
   -o-transition: all 0.3s;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
-}
+} 
 
 .page-loader.loaded {
   width: 0;
+  left: 0;
   -moz-transition: all 1s cubic-bezier(0.8, 0.2, 0.2, 0.9);
   -o-transition: all 1s cubic-bezier(0.8, 0.2, 0.2, 0.9);
   -webkit-transition: all 1s cubic-bezier(0.8, 0.2, 0.2, 0.9);
@@ -165,7 +165,30 @@ label,
 
 .page-loader.loaded:before {
   opacity: 0;
-} */
+}
+
+
+
+
+.inner-section-loader{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.6);
+  z-index: 99;
+}
+
+@media (max-width: 480px) {
+  .page-loader:before {
+    position: fixed;
+    left: 50%;
+    top: 40%; 
+  }
+}
+
+
+
+
 
 /*  
     ----------------------------------
@@ -773,7 +796,7 @@ header .text p:last-child {
 nav {
   position: absolute;
   background-color: black;
-  z-index: 9999;
+  z-index: 999;
   width: 100%;
   -moz-transition: all 0.5s;
   -o-transition: all 0.5s;
@@ -2108,6 +2131,7 @@ nav .cart-wrapper.open {
   -o-transition: all 0.3s;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
+  margin-left: .5rem;
 }
 
 .sort-bar .grid-list a:hover {
@@ -2118,6 +2142,12 @@ nav .cart-wrapper.open {
   -o-transform: scale(1.2);
   -webkit-transform: scale(1.2);
   transform: scale(1.2);
+}
+
+.sort-bar .grid-list a.active {
+  background-color: #ffbb00;
+  color: white;
+ 
 }
 
 .sort-bar strong {
@@ -2190,6 +2220,9 @@ nav .cart-wrapper.open {
 .pagination-wrapper {
   position: relative;
   text-align: center;
+}
+.pagination-wrapper .v-hide {
+  visibility: hidden;
 }
 
 @media (max-width: 767px) {
@@ -2446,6 +2479,7 @@ nav .cart-wrapper.open {
 */
 .products {
   background-color: #eeeeee;
+  position: relative;
 }
 
 .products .box-filters {
@@ -2958,6 +2992,7 @@ nav .cart-wrapper.open {
   display: none;
 }
 
+
 .product .product-colors {
   display: block;
 }
@@ -3004,6 +3039,13 @@ nav .cart-wrapper.open {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+
+
+
+
+
+
+
 @media (min-width: 992px) {
   .product .main {
     padding: 50px 0;
@@ -3019,6 +3061,11 @@ nav .cart-wrapper.open {
     margin-bottom: 50px;
   }
 }
+
+
+
+
+
 
 @media (max-width: 991px) {
   .product .product-flex {
@@ -4560,11 +4607,16 @@ nav .cart-wrapper.open {
 }
 
 .popup-main .popup-buttons a {
-  border-left: 1px solid #fff;
+  /* border-left: 1px solid #fff; */
   padding: 32px 30px;
   display: inline-block;
-  margin-left: -3px;
+  /* margin-left: -3px; */
 }
+
+.popup-main .popup-buttons a span.hidden-xs {
+  margin-left: 3px;
+}
+
 
 .popup-main .popup-buttons a:hover {
   background-color: black;
@@ -4738,6 +4790,7 @@ nav .cart-wrapper.open {
 
 .checkout .cart-wrapper {
   margin: 15px 0;
+  position: relative;
 }
 
 @media print {
@@ -5626,6 +5679,8 @@ nav .cart-wrapper.open {
 }
 
 .history .history-image {
+  position: relative;
+  z-index: 1;
   background-position: center;
   background-size: cover;
   min-height: 300px;
@@ -6015,7 +6070,7 @@ nav .cart-wrapper.open {
 
 .team article:hover {
   position: relative;
-  z-index: 999;
+  z-index: 998;
 }
 
 .team article:hover .details-text {
@@ -6533,6 +6588,11 @@ section.owl-icons-wrapper .owl-buttons div span {
 }
 
 
+section.product .owl-buttons{
+  opacity: 1 !important;
+}
+
+
 
 /* lazy load blur up image support */
 .blur-up {
@@ -6572,4 +6632,28 @@ section.owl-icons-wrapper .owl-buttons div span {
 
 .irs--square .irs-bar {
   background-color: var(--theme--hover-color) !important;
+}
+
+
+
+/* Input group addon  */
+.input-group-addon {
+
+  font-size: 13px;
+  color: #fff;
+  background-color: #3a3d45;
+
+}
+
+
+.form-group  .error{
+  margin-left: 1rem;
+  color: #b00020;
+  font-size: 14px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+hr.error{
+  border-top: 3px solid #b00020;
 }

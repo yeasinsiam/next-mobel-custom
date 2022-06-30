@@ -242,7 +242,6 @@ function Cart() {
                     <input
                       type="text"
                       className="form-control form-coupon"
-                      value=""
                       placeholder="Enter your coupon code"
                     />
                   </span>

@@ -1,16 +1,23 @@
-import ContactForm from "../components/contact/ContactForm";
+import Breadcrumb from "components/Breadcrumb";
+import dynamic from "next/dynamic";
+import Head from "next/head";
+import { useSelector } from "react-redux";
+// components
+const ContactForm = dynamic(() => import("../components/contact/ContactForm"));
 
 function Contact() {
+  const contactLoading = useSelector((state) => state.options.contact.loading);
   return (
     <>
+      <Head>
+        <title>Contact us</title>
+      </Head>
       {/*  <!-- ========================  Main header ======================== --> */}
-      <section
-        className="main-header"
-        style={{ backgroundImage: "url(assets/images/gallery-2.webp)" }}
-      >
-        <header>
-          <div className="container">
-            <h1 className="h2 title">Sofa Laura</h1>
+      <Breadcrumb
+        backgroundImageLink="assets/images/gallery-2.webp"
+        containerHtml={
+          <>
+            <h2 className="h2 title">Contact</h2>
             <ol className="breadcrumb breadcrumb-inverted">
               <li>
                 <a href="index.html">
@@ -18,20 +25,14 @@ function Contact() {
                 </a>
               </li>
               <li>
-                <a href="category.html">Product Category</a>
-              </li>
-              <li>
-                <a href="products-grid.html">Product Sub-category</a>
-              </li>
-              <li>
-                <a className="active" href="product.html">
-                  Product overview
+                <a className="active" href="contact.html">
+                  Contact
                 </a>
               </li>
             </ol>
-          </div>
-        </header>
-      </section>
+          </>
+        }
+      />
       {/* <!-- ========================  Contact ======================== --> */}
       <section className="contact">
         {/* <!-- === Goolge map === --> */}
@@ -92,6 +93,11 @@ function Contact() {
                 </div>
 
                 <div className="banner">
+                  <div
+                    className={`page-loader inner-section-loader ${
+                      contactLoading ? "" : "loaded"
+                    }`}
+                  ></div>
                   <div className="row">
                     <div className="col-md-offset-1 col-md-10 text-center">
                       <h2 className="title">Send an email</h2>
