@@ -1,5 +1,4 @@
 import { setInitialPageLoading } from "@redux/actions";
-import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import NextNProgress from "nextjs-progressbar";
