@@ -11,16 +11,6 @@ import {
   GlobalProductSearchElement,
 } from "./GlobalProductSearch/GlobalProductSearch";
 
-// const { GlobalProductSearchButton, GlobalProductSearchElement } = dynamic(() =>
-//   import("./GlobalProductSearch/GlobalProductSearch")
-// );
-// const GlobalProductSearchButton = dynamic(() =>
-//   import("components/layout/GlobalProductSearch/GlobalProductSearchButton")
-// );
-// const GlobalProductSearchElement = dynamic(() =>
-//   import("components/layout/GlobalProductSearch/GlobalProductSearchElement")
-// );
-
 function Layout({ children }) {
   const dispatch = useDispatch();
   // Defined States
