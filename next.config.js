@@ -14,9 +14,9 @@ const nextConfig = {
     );
     return config;
   },
-  images: {
-    domains: ["localhost"],
-  },
+  // images: {
+  //   domains: ["localhost"],
+  // },
 
   // experimental: { images: { layoutRaw: true } },
 };

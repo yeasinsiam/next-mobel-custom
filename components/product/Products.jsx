@@ -130,9 +130,7 @@ const Products = () => {
                       <div className="text">
                         <h2 className="title h4">
                           <Link href={`/products/${product.slug}`}>
-                            <a>
-                              {product.title} {product.images[0].url}
-                            </a>
+                            <a>{product.title}</a>
                           </Link>
                         </h2>
 
